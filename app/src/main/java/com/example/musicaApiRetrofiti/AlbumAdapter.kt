@@ -34,7 +34,6 @@ class AlbumAdapter(val albums : List<Album>) : RecyclerView.Adapter<AlbumAdapter
             nomeAlbum.text = album.collectionName
             numeroFaixas.text = album.trackCount.toString()
             Glide.with(itemView.context).load(album.artworkUrl100).into(capaAlbum)
-
         }
     }
 }
