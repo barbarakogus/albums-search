@@ -23,6 +23,7 @@ class MainModel {
         )
 
         //enfileirar. é nesse momento q estamos fazendo a chamada para o servdor, e pegar o resultado
+        //enqueue - colocar na fila
         callBuscaAlbums.enqueue(object : Callback<ResultadoAlbums> {
             override fun onResponse(
                 //6 passo: avaliar o que fazer quando der sucesso
