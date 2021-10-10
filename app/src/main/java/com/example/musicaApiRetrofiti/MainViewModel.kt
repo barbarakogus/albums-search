@@ -26,6 +26,21 @@ class MainViewModel : ViewModel() {
             }
         )
     }
+
+    fun buscarFaixas(term : String) {
+        model.buscarFaixasApi(term,
+            onSuccess = {
+                albums.postValue(it)
+                Log.d("api", it.toString())
+                barraProgresso.postValue(false)
+                Log.d("erroResultado", it.toString())
+            },
+            onFailure = {
+                mensagemErro.postValue("Erro na conexão com a Api")
+                barraProgresso.postValue(false)
+            }
+        )
+    }
 }
-//estamos trabalhando com Retrofit e a APppleApi. Analisando estes dois recursos, percebemos que o onSucesso trata até qdo um enviamos um dado errado.
+//estamos trabalhando com Retrofit e a APppleApi. Analisando estes dois recursos, percebemos que o onSucesso trata o sucesso e tb qdo um enviamos um dado errado.
 //neste caso a api retorna um [] vazio. E onFailure ficou restrito a qdo temos um erro de conexao com a API.

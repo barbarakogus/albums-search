@@ -12,7 +12,17 @@ interface AppleApi {
         @Query("term") term: String, //o query vai enviar os parametros para API, parametros já definidos na documentacao, qm define os parametros é o backend
         @Query("entity") entity: String //os parametros que estao sendo passados como term e entity, säo os que definimos na val callBuscaAlbums (Jack Johson e albums)
     ) : Call<ResultadoAlbums>
+
+    @GET("/search")
+    fun buscarFaixas(
+        @Query("term") term: String, //o query vai enviar os parametros para API, parametros já definidos na documentacao, qm define os parametros é o backend
+        @Query("entity") entity: String, //os parametros que estao sendo passados como term e entity, säo os que definimos na val callBuscaAlbums (Jack Johson e albums)
+        @Query("attribute") attribute: String
+    ) : Call<ResultadoAlbums>
+
 }
+
+// https://itunes.apple.com/search\?term\=in+between+dreams\&entity\=song\&attribute\=albumTerm
 
 //Conforme a documentacao a interface obrigatoriamente devolverá uma Call, que é a entidade que representará nossa req. e permitirá q ela seja executada,
 //toda vez q a devolvemos precisamos indicar q tipo de retorno é esperado. Conforme a documentacao Retrofit devemos retornar um objeto, no nosso caso

@@ -42,6 +42,39 @@ class MainModel {
         })
     }
 
+    fun buscarFaixasApi (
+        term : String,
+        onSuccess : (ResultadoAlbums) -> Unit,
+        onFailure : () -> Unit) {
+
+        //5 especifica a chamada (call) e os seus parametros
+        val callBuscaAlbums = appleApi.buscarFaixas(
+            term,
+            "song",
+            "albumTerm"
+        )
+
+        //enfileirar. é nesse momento q estamos fazendo a chamada para o servdor, e pegar o resultado
+        //enqueue - colocar na fila
+        callBuscaAlbums.enqueue(object : Callback<ResultadoAlbums> {
+            override fun onResponse(
+                //6 passo: avaliar o que fazer quando der sucesso
+                call: Call<ResultadoAlbums>,
+                response: Response<ResultadoAlbums>
+            ) {
+                val resultado = response.body()
+                resultado?.let {
+                    onSuccess(resultado)
+                }
+            }
+            override fun onFailure(call: Call<ResultadoAlbums>, t: Throwable) {
+                //7 passo: avaliar o que fazer quando der erro
+                onFailure()
+            }
+        })
+    }
+
+
     fun configurarRetrofit() : AppleApi { //vai retornar uma implementacao da interface AppleApi
         //4 inicializar o retrofit
         val retrofit = Retrofit.Builder() //a documentacao exige criar uma instancia do retrofit (oq fizemos nessa linha) junto com o Builder(), além da configuracao de um service --> AppleApi

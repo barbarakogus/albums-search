@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/backgroung">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_nome_cantor_layout"
@@ -13,22 +14,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="16dp"
-        android:hint="@string/input_nome_cantor_layout">
+        android:hint="@string/input_nome_cantor_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="#085f63"
+        app:hintTextColor="@color/stronger_color"
+        app:placeholderTextColor="@color/stronger_color"
+        app:boxStrokeColor="@color/stronger_color"
+        app:boxStrokeWidthFocused="4dp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="230dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/stronger_color"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_buscar_album_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/stronger_color"
         android:text="@string/btn_buscar_album_layout"
+        android:textColor="@color/light_color"
         app:layout_constraintStart_toStartOf="@id/input_nome_cantor_layout"
-        app:layout_constraintTop_toBottomOf="@id/input_nome_cantor_layout"
-        android:layout_marginTop="10dp">
-    </Button>
+        app:layout_constraintTop_toBottomOf="@id/input_nome_cantor_layout" />
 
     <ProgressBar
         android:id="@+id/barra_progresso_layout"
@@ -49,7 +64,10 @@
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barra_progresso_layout">
+        app:layout_constraintTop_toBottomOf="@id/barra_progresso_layout"
+        android:textColor="@color/error_message"
+        android:textSize="20sp"
+        android:textStyle="bold">
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
