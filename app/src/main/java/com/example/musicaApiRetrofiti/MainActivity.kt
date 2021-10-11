@@ -5,11 +5,12 @@ package com.example.musicaApiRetrofiti
 -arrumar texto invandindo espaco da imagem
 -colocar o click em todos os elementos da linha
 -terceira tela com a letra da musica
--binding view segunda tela
+-binding view nos adapter, dentro de uma classe
 -mudar cor barra progresso
 -borda imagem
 -borda button
 -refinar a busca da API
+-ordenar faixas em ordem crescente
 -*/
 
 

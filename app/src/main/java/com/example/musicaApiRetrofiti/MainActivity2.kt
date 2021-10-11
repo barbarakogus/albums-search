@@ -2,27 +2,26 @@ package com.example.musicaApiRetrofiti
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.musicaApiRetrofiti.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity() {
 
+    private lateinit var bindingActivity2 : ActivityMain2Binding
+
     val mainViewModelActivity2 by viewModels<MainViewModel>()
 
-    var rvActivity2 : RecyclerView? = null
     var nomeAlbumExtra : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        bindingActivity2 = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(bindingActivity2.root)
 
-        rvActivity2 = findViewById(R.id.rv_faixas_layout_activity2)
-        val nomeAlbum = findViewById<TextView>(R.id.nome_album_layout_activity2)
         nomeAlbumExtra = intent.extras?.getString("nomeAlbum")
-        nomeAlbum.text = nomeAlbumExtra
+        bindingActivity2.nomeAlbumLayoutActivity2.text = nomeAlbumExtra
 
         val nomeArtista = intent.extras?.getString("nomeArtista")
 
@@ -34,8 +33,8 @@ class MainActivity2 : AppCompatActivity() {
         mainViewModelActivity2.albums.observe(this, {
             Log.d("it", it.results.first().trackName)
             val adapterFaixas = AdapterFaixas(it.results)
-            rvActivity2?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            rvActivity2?.adapter = adapterFaixas
+            bindingActivity2.rvFaixasLayoutActivity2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            bindingActivity2.rvFaixasLayoutActivity2.adapter = adapterFaixas
         })
     }
 }
