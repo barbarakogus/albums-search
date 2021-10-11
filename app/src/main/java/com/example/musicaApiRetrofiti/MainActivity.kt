@@ -3,7 +3,6 @@ package com.example.musicaApiRetrofiti
 /*melhorias
 -layout
 -arrumar texto invandindo espaco da imagem
--colocar o click em todos os elementos da linha
 -terceira tela com a letra da musica
 -binding view nos adapter, dentro de uma classe
 -mudar cor barra progresso
@@ -12,7 +11,6 @@ package com.example.musicaApiRetrofiti
 -refinar a busca da API
 -ordenar faixas em ordem crescente
 -*/
-
 
 import android.content.Context
 import android.content.Intent

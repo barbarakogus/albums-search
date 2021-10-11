@@ -9,11 +9,11 @@ import com.example.musicaApiRetrofiti.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity() {
 
-    private lateinit var bindingActivity2 : ActivityMain2Binding
+    private lateinit var bindingActivity2: ActivityMain2Binding
 
     val mainViewModelActivity2 by viewModels<MainViewModel>()
 
-    var nomeAlbumExtra : String? = null
+    var nomeAlbumExtra: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +29,14 @@ class MainActivity2 : AppCompatActivity() {
         mainViewModelActivity2.buscarFaixas(nomeAlbumExtra.toString())
     }
 
-    fun  setObserver() {
+    fun setObserver() {
         mainViewModelActivity2.albums.observe(this, {
             Log.d("it", it.results.first().trackName)
-            val adapterFaixas = AdapterFaixas(it.results)
-            bindingActivity2.rvFaixasLayoutActivity2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            val faixas = it.results.filter { it.collectionName.equals(nomeAlbumExtra) }
+            val faixasSorted = faixas.sortedBy { it.trackNumber }
+            val adapterFaixas = AdapterFaixas(faixasSorted)
+            bindingActivity2.rvFaixasLayoutActivity2.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
             bindingActivity2.rvFaixasLayoutActivity2.adapter = adapterFaixas
         })
     }
