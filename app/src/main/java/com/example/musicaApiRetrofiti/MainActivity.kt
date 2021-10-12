@@ -9,7 +9,6 @@ package com.example.musicaApiRetrofiti
 -borda imagem
 -borda button
 -refinar a busca da API
--ordenar faixas em ordem crescente
 -*/
 
 import android.content.Context

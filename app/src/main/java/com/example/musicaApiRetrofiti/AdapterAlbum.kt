@@ -8,17 +8,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.musicaApiRetrofiti.databinding.ActivityMainBinding
+import com.example.musicaApiRetrofiti.databinding.LayoutLinhaAlbumsBinding
 
 class AdapterAlbum(val albums : List<Album>, val onClickAlbum: (String) -> Unit) : RecyclerView.Adapter<AdapterAlbum.AlbumViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        //val binding = ActivityMainBinding.inflate(layoutInflater, R.layout.layout_linha_albums, parent, false)
+        val binding = LayoutLinhaAlbumsBinding.inflate(layoutInflater, parent, false)
 
         LayoutInflater.from(parent.context).inflate(R.layout.layout_linha_albums, parent, false)
             .let {
-                return AlbumViewHolder(it, onClickAlbum, /*binding*/)
+                return AlbumViewHolder(onClickAlbum, binding)
             }
     }
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
@@ -28,19 +29,17 @@ class AdapterAlbum(val albums : List<Album>, val onClickAlbum: (String) -> Unit)
         return albums.size
     }
 
-    class AlbumViewHolder(itemView: View, val onClickAlbum: (String) -> Unit, /*val binding: ActivityMainBinding*/) : RecyclerView.ViewHolder(itemView) {
-        val nomeArtista = itemView.findViewById<TextView>(R.id.nome_artista)
-        val nomeAlbum = itemView.findViewById<TextView>(R.id.nome_album)
-        val numeroFaixas = itemView.findViewById<TextView>(R.id.numero_faixas)
-        val capaAlbum = itemView.findViewById<ImageView>(R.id.imagem_album)
+    //t odo viewHolder está atrelado a view da linha. como estamos usando o viewBinding, dentro do viewBinding temos acesso a view atraves do .root
+    //o .root representa a view dentro de um viewBinding
+    class AlbumViewHolder(val onClickAlbum: (String) -> Unit, val binding: LayoutLinhaAlbumsBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun preencherListaAlbum (album : Album) {
-            nomeArtista.text = album.artistName
-            nomeAlbum.text = album.collectionName
-            numeroFaixas.text = album.trackCount.toString()
-            Glide.with(itemView.context).load(album.artworkUrl100).into(capaAlbum)
+            binding.nomeArtista.text = album.artistName
+            binding.nomeAlbum.text = album.collectionName
+            binding.numeroFaixas.text = album.trackCount.toString()
+            Glide.with(itemView.context).load(album.artworkUrl100).into(binding.imagemAlbum)
 
-            itemView.setOnClickListener {
+            binding.root.setOnClickListener {
                 onClickAlbum(album.collectionName)
             }
         }
