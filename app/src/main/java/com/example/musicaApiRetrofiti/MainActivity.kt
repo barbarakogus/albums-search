@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        title = "Buscar Albums - AppleApi"
+        title = "Search albums - AppleApi"
 
         binding.btnBuscarAlbumLayout.setOnClickListener {
             setObserver()

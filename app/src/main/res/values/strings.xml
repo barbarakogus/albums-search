@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">musicaApiRetrofiti</string>
-    <string name="input_nome_cantor_layout">Informe o artista</string>
-    <string name="btn_buscar_album_layout">buscar album</string>
-    <string name="label_artista_rv">Nome artista:</string>
+    <string name="input_nome_cantor_layout">Enter artist or band name</string>
+    <string name="btn_buscar_album_layout">search album</string>
+    <string name="label_artista_rv">Artist name:</string>
     <string name="nome_artista_rv">Joao</string>
     <string name="label_album_rv">Album:</string>
     <string name="nome_album_rv">Maria</string>
-    <string name="label_numero_faixas_rv">Número faixas:</string>
+    <string name="label_numero_faixas_rv">Number of tracks:</string>
     <string name="numero_faixas_rv">10</string>
     <string name="imagem_description_rv">Artist\'s album cover</string>
 </resources>
