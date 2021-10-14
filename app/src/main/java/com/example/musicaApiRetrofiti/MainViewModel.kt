@@ -28,6 +28,7 @@ class MainViewModel : ViewModel() {
     }
 
     fun buscarFaixas(term : String) {
+        barraProgresso.postValue(true)
         model.buscarFaixasApi(term,
             onSuccess = {
                 albums.postValue(it)

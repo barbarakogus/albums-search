@@ -17,10 +17,8 @@ class AdapterAlbum(val albums : List<Album>, val onClickAlbum: (String) -> Unit)
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = LayoutLinhaAlbumsBinding.inflate(layoutInflater, parent, false)
 
-        LayoutInflater.from(parent.context).inflate(R.layout.layout_linha_albums, parent, false)
-            .let {
-                return AlbumViewHolder(onClickAlbum, binding)
-            }
+        return AlbumViewHolder(onClickAlbum, binding)
+
     }
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         holder.preencherListaAlbum(albums[position])

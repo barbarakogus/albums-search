@@ -18,17 +18,21 @@
         android:hint="@string/input_nome_cantor_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:textColorHint="#085f63"
-        app:hintTextColor="@color/stronger_color"
-        app:placeholderTextColor="@color/stronger_color"
-        app:boxStrokeColor="@color/stronger_color"
+        app:hintTextColor="@color/green_500"
+        app:placeholderTextColor="@color/green_500"
+        app:boxStrokeColor="@color/green_500"
         app:boxStrokeWidthFocused="4dp"
-        app:boxStrokeWidth="2dp">
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/stronger_color"/>
+            android:textColor="@color/green_500"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -36,10 +40,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/stronger_color"
         android:padding="14dp"
         android:text="@string/btn_buscar_album_layout"
         android:textColor="@color/light_color"
+        android:background="@drawable/shape_arredondado"
         app:layout_constraintStart_toStartOf="@id/input_nome_cantor_layout"
         app:layout_constraintTop_toBottomOf="@id/input_nome_cantor_layout"
         app:layout_constraintEnd_toEndOf="@+id/input_nome_cantor_layout"/>

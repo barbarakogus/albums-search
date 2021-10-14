@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="18sp"
-        android:textColor="@color/stronger_color"
+        android:textColor="@color/green_500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </TextView>
@@ -24,7 +24,7 @@
         android:layout_marginEnd="18dp"
         android:text=""
         android:textSize="18sp"
-        android:textColor="@color/stronger_color"
+        android:textColor="@color/green_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/numero_faixa_layout"

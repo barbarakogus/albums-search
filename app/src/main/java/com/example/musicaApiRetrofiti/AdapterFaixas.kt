@@ -12,10 +12,7 @@ class AdapterFaixas(val faixas : List<Album>) : RecyclerView.Adapter<AdapterFaix
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = LayoutLinhaFaixasBinding.inflate(layoutInflater, parent, false)
 
-        LayoutInflater.from(parent.context).inflate(R.layout.layout_linha_faixas, parent, false)
-            .let {
-                return ViewHolderFaixas(binding)
-            }
+        return ViewHolderFaixas(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolderFaixas, position: Int) {

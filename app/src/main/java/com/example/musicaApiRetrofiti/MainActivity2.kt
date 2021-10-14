@@ -2,6 +2,7 @@ package com.example.musicaApiRetrofiti
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,17 @@ class MainActivity2 : AppCompatActivity() {
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
             bindingActivity2.rvFaixasLayoutActivity2.adapter = adapterFaixas
         })
+        mainViewModelActivity2.barraProgresso.observe(this){
+            configurarBarraProgresso(it)
+        }
+    }
+
+    fun configurarBarraProgresso(valor: Boolean) {
+        if (valor) {
+            bindingActivity2.barraProgressoLayout2.visibility = View.VISIBLE
+        } else {
+            bindingActivity2.barraProgressoLayout2.visibility = View.INVISIBLE
+        }
     }
 }
 

@@ -1,14 +1,10 @@
 package com.example.musicaApiRetrofiti
 
 /*melhorias
--layout
--arrumar texto invandindo espaco da imagem
 -terceira tela com a letra da musica
--binding view nos adapter, dentro de uma classe
--mudar cor barra progresso
 -borda imagem
--borda button
 -refinar a busca da API
+-seprar model e viewModel. comecar pelo model
 -*/
 
 import android.content.Context
@@ -31,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     val mainViewModel by viewModels<MainViewModel>() //estamos instanciando o ViewModel. Só conseguimos fazer dessa forma, pois implementamos a biblioteca lifecycle-livedata-ktx
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -88,7 +83,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    //@RequiresApi(Build.VERSION_CODES.M) -- para versao antiga suportar vesao nova. As vezes desnecessario, como neste caso.
+    //Dependendo do app por ate impedir o carregamento, qdo chamado antes do onCreate. Code smell!
     fun closeKeyboard() {
         // this will give us the view which is currently focus in this layout
         val view = this.currentFocus
