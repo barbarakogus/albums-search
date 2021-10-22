@@ -12,7 +12,7 @@ class MainActivity2 : AppCompatActivity() {
 
     private lateinit var bindingActivity2: ActivityMain2Binding
 
-    val mainViewModelActivity2 by viewModels<MainViewModel>()
+    val FaixasViewModel by viewModels<ViewModelFaixas>()
 
     var nomeAlbumExtra: String? = null
 
@@ -27,11 +27,11 @@ class MainActivity2 : AppCompatActivity() {
         val nomeArtista = intent.extras?.getString("nomeArtista")
 
         setObserver()
-        mainViewModelActivity2.buscarFaixas(nomeAlbumExtra.toString())
+        FaixasViewModel.buscarFaixas(nomeAlbumExtra.toString())
     }
 
     fun setObserver() {
-        mainViewModelActivity2.albums.observe(this, {
+        FaixasViewModel.albums.observe(this, {
             Log.d("it", it.results.first().trackName)
             val faixas = it.results.filter { it.collectionName.equals(nomeAlbumExtra) }
             val faixasSorted = faixas.sortedBy { it.trackNumber }
@@ -40,7 +40,7 @@ class MainActivity2 : AppCompatActivity() {
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
             bindingActivity2.rvFaixasLayoutActivity2.adapter = adapterFaixas
         })
-        mainViewModelActivity2.barraProgresso.observe(this){
+        FaixasViewModel.barraProgresso.observe(this){
             configurarBarraProgresso(it)
         }
     }

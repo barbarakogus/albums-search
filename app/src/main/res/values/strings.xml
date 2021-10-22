@@ -9,4 +9,5 @@
     <string name="label_numero_faixas_rv">Number of tracks:</string>
     <string name="numero_faixas_rv">10</string>
     <string name="imagem_description_rv">Artist\'s album cover</string>
+    <string name="erro_result_not_found">Result not found</string>
 </resources>

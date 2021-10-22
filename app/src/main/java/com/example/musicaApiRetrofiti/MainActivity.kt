@@ -4,19 +4,16 @@ package com.example.musicaApiRetrofiti
 -terceira tela com a letra da musica
 -borda imagem
 -refinar a busca da API
--seprar model e viewModel. comecar pelo model
 -*/
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicaApiRetrofiti.databinding.ActivityMainBinding
 import retrofit2.*
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    val mainViewModel by viewModels<MainViewModel>() //estamos instanciando o ViewModel. Só conseguimos fazer dessa forma, pois implementamos a biblioteca lifecycle-livedata-ktx
+    val albumViewModel by viewModels<ViewModelAlbum>() //estamos instanciando o ViewModel. Só conseguimos fazer dessa forma, pois implementamos a biblioteca lifecycle-livedata-ktx
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnBuscarAlbumLayout.setOnClickListener {
             setObserver()
-            mainViewModel.buscarAlbuns(binding.inputNomeCantorLayout.editText?.text.toString())
+            albumViewModel.buscarAlbuns(binding.inputNomeCantorLayout.editText?.text.toString())
             closeKeyboard()
         }
     }
@@ -44,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     //aqui estamos configurando os observer. Estamos pegando o mutableLivedata, q foi declarado no MainViewModel, e vamos atribuir um obseve
     //para cada mutableLivedata. O observe vai ser responsável por pegar a notificacao enviada pelo postValue, e apartir disso vai executar o codigo dentro das {}.
     private fun setObserver() {
-        mainViewModel.albums.observe(this, {
+        albumViewModel.albums.observe(this, {
             val adapter = AdapterAlbum(it.results, onClickAlbum = { nomeAlbum ->
                 val goToAlbumSelecionado = Intent(this@MainActivity, MainActivity2::class.java)
                 goToAlbumSelecionado.putExtra("nomeAlbum", nomeAlbum)
@@ -59,14 +56,14 @@ class MainActivity : AppCompatActivity() {
                 binding.rvAlbumsLayout.adapter = adapter
                 binding.mensagemErroLayout.text = ""
             } else {
-                mostrarMensagemErro("Resultado nao encontrado")
+                mostrarMensagemErro(getString(R.string.erro_result_not_found))
                 binding.rvAlbumsLayout.adapter = null
             } //qm alimenta o RV é o adapter. Logo desacoplamos o adapter do RV na linha anterior, e dessa forma o RV n tem dados para carregar.
         })
-        mainViewModel.mensagemErro.observe(this, {
+        albumViewModel.mensagemErro.observe(this, {
             mostrarMensagemErro(it)
         })
-        mainViewModel.barraProgresso.observe(this, {
+        albumViewModel.barraProgresso.observe(this, {
             configurarBarraProgresso(it)
         })
     } //this = está informando o ciclo de vida da activity(the observer neste projeto). O liveData tem conhecimento sobre o ciclo de vida dos componetes do android.
@@ -83,8 +80,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //@RequiresApi(Build.VERSION_CODES.M) -- para versao antiga suportar vesao nova. As vezes desnecessario, como neste caso.
-    //Dependendo do app por ate impedir o carregamento, qdo chamado antes do onCreate. Code smell!
+    //@RequiresApi(Build.VERSION_CODES.M) -- para versao antiga suportar alguma ferramenta especifica. As vezes desnecessario, como neste caso.
+    //Dependendo do app pode ate impedir o carregamento, qdo chamado antes do onCreate. Code smell!
     fun closeKeyboard() {
         // this will give us the view which is currently focus in this layout
         val view = this.currentFocus
