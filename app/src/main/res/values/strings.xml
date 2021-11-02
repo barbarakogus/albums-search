@@ -10,4 +10,5 @@
     <string name="numero_faixas_rv">10</string>
     <string name="imagem_description_rv">Artist\'s album cover</string>
     <string name="erro_result_not_found">Result not found</string>
+    <string name="error_api_connection">Erro na conexão com a Api</string>
 </resources>

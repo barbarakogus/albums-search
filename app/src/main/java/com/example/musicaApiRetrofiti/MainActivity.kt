@@ -1,7 +1,7 @@
 package com.example.musicaApiRetrofiti
 
 /*melhorias
--terceira tela com a letra da musica
+-melhor layout, principalmente da terceira pagina.
 -borda imagem
 -refinar a busca da API
 -*/
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 binding.rvAlbumsLayout.adapter = adapter
                 binding.mensagemErroLayout.text = ""
             } else {
-                mostrarMensagemErro(getString(R.string.erro_result_not_found))
+                mostrarMensagemErro(R.string.erro_result_not_found.toString())
                 binding.rvAlbumsLayout.adapter = null
             } //qm alimenta o RV é o adapter. Logo desacoplamos o adapter do RV na linha anterior, e dessa forma o RV n tem dados para carregar.
         })
@@ -69,13 +69,13 @@ class MainActivity : AppCompatActivity() {
     } //this = está informando o ciclo de vida da activity(the observer neste projeto). O liveData tem conhecimento sobre o ciclo de vida dos componetes do android.
 
     fun mostrarMensagemErro(mensagem: String) {
-        binding.mensagemErroLayout.text = mensagem
+        binding.mensagemErroLayout.text = getString(mensagem.toInt())
     }
 
     fun configurarBarraProgresso(valor: Boolean) {
         if (valor) {
             binding.barraProgressoLayout.visibility = View.VISIBLE
-        } else {
+        }else {
             binding.barraProgressoLayout.visibility = View.INVISIBLE
         }
     }

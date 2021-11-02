@@ -22,7 +22,7 @@ class ViewModelFaixas : ViewModel() {
                 Log.d("erroResultado", it.toString())
             },
             onFailure = {
-                mensagemErro.postValue("Erro na conexão com a Api")
+                mensagemErro.postValue(R.string.error_api_connection.toString())
                 barraProgresso.postValue(false)
             }
         )

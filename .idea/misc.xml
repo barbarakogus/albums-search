@@ -6,8 +6,10 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/progress.xml" value="0.15989583333333332" />
         <entry key="app/src/main/res/drawable/shape_arredondado.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/drawable/shape_arredondado_imagens.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2598958333333333" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/layout_linha_albums.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/layout_linha_faixas.xml" value="0.25" />
       </map>
