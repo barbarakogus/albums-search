@@ -1,5 +1,7 @@
 package com.example.musicaApiRetrofiti
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,15 +27,22 @@ class MainActivity3 : AppCompatActivity() {
 
         setObserver()
         LyricsViewModel.buscarLyrics(nomeArtista.toString(), trackNameExtra.toString())
+
+        bindingActivity3.linkVagalume.setOnClickListener {
+            val goToVagalume = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.vagalume.com.br/"))
+            startActivity(goToVagalume)
+        }
     }
 
     fun setObserver() {
-
         LyricsViewModel.lyrics.observe(this, {
             bindingActivity3.lyrics.text = it.mus.firstOrNull()?.lyrics
         })
         LyricsViewModel.barraProgresso.observe(this) {
             configurarBarraProgresso(it)
+        }
+        LyricsViewModel.linkVagalume.observe(this) {
+            configurarLinkVagalume(it)
         }
     }
 
@@ -42,6 +51,14 @@ class MainActivity3 : AppCompatActivity() {
             bindingActivity3.barraProgressoLayout3.visibility = View.VISIBLE
         } else {
             bindingActivity3.barraProgressoLayout3.visibility = View.INVISIBLE
+        }
+    }
+
+    fun configurarLinkVagalume(valor : Boolean) {
+        if(valor) {
+            bindingActivity3.linkVagalume.visibility = View.VISIBLE
+        }else {
+            bindingActivity3.linkVagalume.visibility = View.INVISIBLE
         }
     }
 }

@@ -13,17 +13,28 @@
 
         <TextView
             android:id="@+id/song_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/logo_vagalume"
+            app:layout_constraintHorizontal_bias="0"
             android:layout_margin="16dp"
-            android:textAlignment="center"
             android:text=""
             android:textSize="24sp"
             android:textColor="@color/text">
         </TextView>
+
+        <ImageView
+            android:id="@+id/logo_vagalume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_vagalume"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/vagalume_imagem_description"
+            android:layout_margin="8dp">
+        </ImageView>
 
         <ProgressBar
             android:id="@+id/barra_progresso_layout3"
@@ -51,6 +62,21 @@
             android:lineSpacingExtra="8dp">
         </TextView>
 
+        <Button
+            android:id="@+id/link_vagalume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lyrics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/link_vagalume"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_link"
+            android:backgroundTint="@color/backgroung_link"
+            android:visibility="gone">
+        </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

@@ -9,6 +9,7 @@ class ViewModelLyrics : ViewModel() {
 
     val lyrics: MutableLiveData<ResultadoLyrics> = MutableLiveData()
     val barraProgresso: MutableLiveData<Boolean> = MutableLiveData()
+    val linkVagalume: MutableLiveData<Boolean> = MutableLiveData()
 
     fun buscarLyrics(nomeCantor : String, nomeMusica: String) {
         barraProgresso.postValue(true)
@@ -18,9 +19,10 @@ class ViewModelLyrics : ViewModel() {
             onSuccess = {
                 lyrics.postValue(it)
                 barraProgresso.postValue(false)
+                linkVagalume.postValue(true)
             },
             onFailure = {
-
+                linkVagalume.postValue(false)
             }
         )
     }
