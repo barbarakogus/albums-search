@@ -17,57 +17,58 @@
         android:layout_margin="24dp"
         android:hint="@string/input_nome_cantor_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#085f63"
+        android:textColorHint="@color/green_500"
         app:hintTextColor="@color/green_500"
-        app:placeholderTextColor="@color/green_500"
-        app:boxStrokeColor="@color/green_500"
+        app:boxStrokeColor="@color/teal_700"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:boxStrokeWidthFocused="4dp"
-        app:boxStrokeWidth="2dp"
-        app:boxCornerRadiusBottomEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusTopStart="16dp">
+        app:boxStrokeWidth="3dp"
+        app:boxCornerRadiusBottomEnd="18dp"
+        app:boxCornerRadiusBottomStart="18dp"
+        app:boxCornerRadiusTopEnd="18dp"
+        app:boxCornerRadiusTopStart="18dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/green_500"/>
+            android:textSize="20sp"
+            android:textColor="@color/text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_buscar_album_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="14dp"
-        android:text="@string/btn_buscar_album_layout"
-        android:textColor="@color/light_color"
-        android:background="@drawable/shape_arredondado"
         app:layout_constraintStart_toStartOf="@id/input_nome_cantor_layout"
         app:layout_constraintTop_toBottomOf="@id/input_nome_cantor_layout"
-        app:layout_constraintEnd_toEndOf="@+id/input_nome_cantor_layout"/>
+        app:layout_constraintEnd_toEndOf="@+id/input_nome_cantor_layout"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:text="@string/btn_buscar_album_layout"
+        android:textSize="16sp"
+        android:textColor="@color/light_color"
+        android:background="@drawable/shape_arredondado"/>
 
     <ProgressBar
         android:id="@+id/barra_progresso_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_buscar_album_layout">
+        app:layout_constraintTop_toBottomOf="@id/btn_buscar_album_layout"
+        android:layout_margin="20dp"
+        android:visibility="gone">
     </ProgressBar>
 
     <TextView
         android:id="@+id/mensagem_erro_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barra_progresso_layout"
+        android:layout_margin="20dp"
+        android:text=""
         android:textColor="@color/error_message"
         android:textSize="20sp"
         android:textStyle="bold">

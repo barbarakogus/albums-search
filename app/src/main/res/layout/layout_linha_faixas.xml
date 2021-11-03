@@ -9,26 +9,26 @@
         android:id="@+id/numero_faixa_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:text=""
         android:textSize="18sp"
-        android:textColor="@color/green_500"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:textColor="@color/text">
     </TextView>
 
     <TextView
         android:id="@+id/nome_faixa_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/numero_faixa_layout"
+        app:layout_constraintTop_toTopOf="@id/numero_faixa_layout"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="18dp"
         android:text=""
         android:textSize="18sp"
-        android:textColor="@color/green_500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@+id/numero_faixa_layout"
-        app:layout_constraintTop_toTopOf="@id/numero_faixa_layout">
+        android:textColor="@color/text">
     </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

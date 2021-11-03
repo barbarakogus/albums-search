@@ -16,14 +16,14 @@ class MainActivity2 : AppCompatActivity() {
     val FaixasViewModel by viewModels<ViewModelFaixas>()
 
     var nomeAlbumExtra: String? = null
-    var nomeArtista: String? = null
+    var nomeArtistaExtra: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingActivity2 = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(bindingActivity2.root)
 
-        nomeArtista = intent.extras?.getString("nomeArtista")
+        nomeArtistaExtra = intent.extras?.getString("nomeArtista")
         nomeAlbumExtra = intent.extras?.getString("nomeAlbum")
         bindingActivity2.nomeAlbumLayoutActivity2.text = nomeAlbumExtra
 
@@ -38,10 +38,12 @@ class MainActivity2 : AppCompatActivity() {
             val faixas = it.results.filter { it.collectionName.equals(nomeAlbumExtra) }
             val faixasSorted = faixas.sortedBy { it.trackNumber }
 
-            val adapterFaixas = AdapterFaixas(faixasSorted, onClickFaixas = { trackName ->
+            val adapterFaixas = AdapterFaixas(
+                faixasSorted,
+                onClickFaixas = { trackName ->
                     val goToSongSelected = Intent(this@MainActivity2, MainActivity3::class.java)
                     goToSongSelected.putExtra("trackName", trackName)
-                    goToSongSelected.putExtra("nomeArtista", nomeArtista)
+                    goToSongSelected.putExtra("nomeArtista", nomeArtistaExtra)
                     this@MainActivity2.startActivity(goToSongSelected)
                 },
             )

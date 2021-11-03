@@ -9,37 +9,37 @@
         android:id="@+id/label_nome_artista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_artista_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/label_artista_rv"
+        android:textColor="@color/text"
+        android:textSize="18sp">
     </TextView>
 
     <TextView
         android:id="@+id/nome_artista"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/nome_artista_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/label_nome_artista"
         app:layout_constraintTop_toTopOf="@id/label_nome_artista"
-        app:layout_constraintEnd_toStartOf="@id/imagem_album">
+        app:layout_constraintEnd_toStartOf="@id/imagem_album"
+        android:layout_marginStart="10dp"
+        android:text="@string/nome_artista_rv"
+        android:textColor="@color/text"
+        android:textSize="18sp"
+        android:textStyle="bold">
     </TextView>
 
     <TextView
         android:id="@+id/label_nome_album"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/label_nome_artista"
+        app:layout_constraintTop_toBottomOf="@id/nome_artista"
         android:layout_marginTop="10dp"
         android:text="@string/label_album_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/label_nome_artista"
-        app:layout_constraintTop_toBottomOf="@id/nome_artista">
+        android:textColor="@color/text"
+        android:textSize="18sp">
     </TextView>
 
     <TextView
@@ -47,51 +47,49 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/nome_album_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/imagem_album"
         app:layout_constraintStart_toEndOf="@id/label_nome_album"
-        app:layout_constraintTop_toBottomOf="@id/nome_artista">
+        app:layout_constraintTop_toBottomOf="@id/nome_artista"
+        android:layout_marginTop="10dp"
+        android:text="@string/nome_album_rv"
+        android:textColor="@color/text"
+        android:textSize="18sp">
     </TextView>
 
     <TextView
         android:id="@+id/label_numero_faixas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/label_nome_artista"
+        app:layout_constraintTop_toBottomOf="@id/nome_album"
         android:layout_marginTop="10dp"
         android:text="@string/label_numero_faixas_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/label_nome_artista"
-        app:layout_constraintTop_toBottomOf="@id/nome_album">
+        android:textColor="@color/text"
+        android:textSize="18sp">
     </TextView>
 
     <TextView
         android:id="@+id/numero_faixas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/label_numero_faixas"
+        app:layout_constraintTop_toBottomOf="@id/nome_album"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/numero_faixas_rv"
-        android:textColor="@color/green_500"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/label_numero_faixas"
-        app:layout_constraintTop_toBottomOf="@id/nome_album">
+        android:textColor="@color/text"
+        android:textSize="18sp">
     </TextView>
 
     <ImageView
         android:id="@+id/imagem_album"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/imagem_description_rv"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:src="@drawable/ic_launcher_background">
     </ImageView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

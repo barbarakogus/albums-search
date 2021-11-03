@@ -22,7 +22,7 @@ class ModelAlbum {
             "album"
         )
 
-        //enfileirar. é nesse momento q estamos fazendo a chamada para o servdor, e pegar o resultado
+        //enfileirar. é nesse momento q estamos fazendo a chamada para o servidor, e pegar o resultado
         //enqueue - colocar na fila
         callBuscaAlbums.enqueue(object : Callback<ResultadoAlbums> {
             override fun onResponse(

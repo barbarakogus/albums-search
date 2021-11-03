@@ -1,7 +1,6 @@
 package com.example.musicaApiRetrofiti
 
 /*melhorias
--melhor layout, principalmente da terceira pagina.
 -borda imagem
 -refinar a busca da API
 -*/

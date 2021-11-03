@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity3">
+    tools:context=".MainActivity3"
+    android:background="@color/backgroung">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/song_name"
@@ -17,20 +18,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
             android:text=""
             android:textSize="24sp"
-            android:layout_margin="16dp">
+            android:textColor="@color/text">
         </TextView>
 
         <ProgressBar
             android:id="@+id/barra_progresso_layout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/song_name">
+            app:layout_constraintTop_toBottomOf="@id/song_name"
+            android:layout_margin="20dp"
+            android:visibility="gone">
         </ProgressBar>
 
         <TextView
@@ -41,9 +44,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            android:text=""
-            android:textSize="18sp"
             android:padding="16dp"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/text"
             android:lineSpacingExtra="8dp">
         </TextView>
 

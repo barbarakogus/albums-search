@@ -41,7 +41,7 @@ class ModelLyrics {
         })
     }
 
-    fun configurarRetrofit() : VagalumeApi { //vai retornar uma implementacao da interface AppleApi
+    fun configurarRetrofit() : VagalumeApi {
         val okHttpClient = OkHttpClient()
             .newBuilder()
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -50,6 +50,7 @@ class ModelLyrics {
         //4 inicializar o retrofit
         val retrofit = Retrofit.Builder() //a documentacao exige criar uma instancia do retrofit (oq fizemos nessa linha) junto com o Builder(), além da configuracao de um service --> AppleApi
             .baseUrl("https://api.vagalume.com.br/")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build() //vai retornar a instancia do retrofit
         val api = retrofit.create(VagalumeApi::class.java) //criando um objeto do tipo retrofit AppleApi
