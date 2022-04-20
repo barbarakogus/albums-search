@@ -17,16 +17,16 @@
         android:layout_margin="24dp"
         android:hint="@string/input_nome_cantor_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="@color/green_500"
-        app:hintTextColor="@color/green_500"
-        app:boxStrokeColor="@color/teal_700"
+        android:textColorHint="@color/text"
+        app:hintTextColor="@color/text"
+        app:boxStrokeColor="@color/orange_200"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:boxStrokeWidthFocused="4dp"
-        app:boxStrokeWidth="3dp"
-        app:boxCornerRadiusBottomEnd="18dp"
-        app:boxCornerRadiusBottomStart="18dp"
-        app:boxCornerRadiusTopEnd="18dp"
-        app:boxCornerRadiusTopStart="18dp">
+        app:boxStrokeWidth="3dp">
+<!--        app:boxCornerRadiusBottomEnd="18dp"-->
+<!--        app:boxCornerRadiusBottomStart="18dp"-->
+<!--        app:boxCornerRadiusTopEnd="18dp"-->
+<!--        app:boxCornerRadiusTopStart="18dp"-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -42,12 +42,12 @@
         app:layout_constraintStart_toStartOf="@id/input_nome_cantor_layout"
         app:layout_constraintTop_toBottomOf="@id/input_nome_cantor_layout"
         app:layout_constraintEnd_toEndOf="@+id/input_nome_cantor_layout"
-        android:layout_marginTop="10dp"
-        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:padding="14dp"
         android:text="@string/btn_buscar_album_layout"
         android:textSize="16sp"
         android:textColor="@color/light_color"
-        android:background="@drawable/shape_arredondado"/>
+        android:backgroundTint="#ff6f00"/>
 
     <ProgressBar
         android:id="@+id/barra_progresso_layout"

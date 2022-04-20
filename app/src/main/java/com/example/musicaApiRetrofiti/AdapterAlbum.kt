@@ -1,13 +1,9 @@
 package com.example.musicaApiRetrofiti
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.musicaApiRetrofiti.databinding.ActivityMainBinding
 import com.example.musicaApiRetrofiti.databinding.LayoutLinhaAlbumsBinding
 
 class AdapterAlbum(val albums : List<Album>, val onClickAlbum: (String) -> Unit) : RecyclerView.Adapter<AdapterAlbum.AlbumViewHolder> () {
@@ -18,7 +14,6 @@ class AdapterAlbum(val albums : List<Album>, val onClickAlbum: (String) -> Unit)
         val binding = LayoutLinhaAlbumsBinding.inflate(layoutInflater, parent, false)
 
         return AlbumViewHolder(onClickAlbum, binding)
-
     }
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         holder.preencherListaAlbum(albums[position])

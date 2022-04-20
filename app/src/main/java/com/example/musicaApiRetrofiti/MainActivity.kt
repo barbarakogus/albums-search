@@ -3,6 +3,7 @@ package com.example.musicaApiRetrofiti
 /*melhorias
 -borda imagem
 -refinar a busca da API
+tratar erro da api vagalume
 -*/
 
 import android.content.Context

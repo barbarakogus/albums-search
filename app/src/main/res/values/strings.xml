@@ -10,7 +10,7 @@
     <string name="numero_faixas_rv">10</string>
     <string name="imagem_description_rv">Artist\'s album cover</string>
     <string name="erro_result_not_found">Result not found</string>
-    <string name="error_api_connection">Erro na conexão com a Api</string>
+    <string name="error_api_connection">Error connecting to API</string>
     <string name="link_vagalume">Visit the Vagalume website</string>
     <string name="vagalume_imagem_description">Vagalume brand logo. This site is providing the data for this project.</string>
 </resources>
