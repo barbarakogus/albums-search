@@ -1,6 +1,7 @@
 # Albums search
 
-In this project, I make requests to Apple and Vagalume API, using retrofit as a framework to make the requests and callback and coroutines to handle the data. To display the albums I use the library recyclerView.
+In this project, I make requests to Apple and Vagalume API. I use retrofit as a framework to make the requests and callback and coroutines to handle the data. To display the albums, I use the library recyclerView.
+
 The goal of this project was to learn and practice these techniques.
 
 Any suggestions are always welcome!
